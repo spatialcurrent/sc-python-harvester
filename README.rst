@@ -12,9 +12,9 @@ This repo contains Python utility functions for harvesting metadata from open-st
 Contributing
 -----------------
 
-`Spatial Current, Inc.`_` is currently accepting pull requests for this repository.  We'd love to have your contributions!  Please see `Contributing.rst`_ for how to get started.
+`Spatial Current, Inc.`_ is currently accepting pull requests for this repository.  We'd love to have your contributions!  Please see `Contributing.rst`_ for how to get started.
 
-.. _Spatial Current, Inc.: https://spatialcurrent.io
+.. _`Spatial Current, Inc.`: https://spatialcurrent.io
 .. _Contributing.rst: https://github.com/spatialcurrent/sc-python-harvester/blob/master/CONTRIBUTING.rst
 
 License
