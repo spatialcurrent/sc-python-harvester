@@ -17,6 +17,8 @@ try:
 except ImportError:
     import json
 
+from pyextract.extract import extract
+
 
 def geonode_collect_profiles(url, memcached_client=None, cache=0):
     """
@@ -39,7 +41,6 @@ def geonode_collect_profiles(url, memcached_client=None, cache=0):
         response_catalog = requests.get(url, params=None)
         if response_catalog.status_code == 200:
             try:
-                #response_catalog_text = response_catalog.text.encode('utf-8')
                 response_profiles_json = response_catalog.json()
             except Exception as err:
                 response_profiles_json = None
@@ -83,8 +84,6 @@ def geonode_collect_resourcebase(url, memcached_client=None, cache=0):
         response_catalog = requests.get(url, params=None)
         if response_catalog.status_code == 200:
             try:
-                #response_catalogtext = response_catalog.text.encode('utf-8')
-                #response_text = response_catalog.json()
                 response_text = response_catalog.text.encode('utf-8')
             except Exception as err:
                 response_text = None

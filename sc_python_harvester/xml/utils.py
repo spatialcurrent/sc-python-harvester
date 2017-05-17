@@ -105,6 +105,7 @@ def find_float(node, selector, ns, fallback=None):
     else:
         return fallback
 
+
 def find_array(node, selector, ns=None, fallback=None):
     """
     returns list of text contents of the nodes recursively matching the xpath selector

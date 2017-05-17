@@ -15,7 +15,9 @@ import requests
 try:
     from flask import json
 except ImportError:
-    import json
+    import json  # noqa
+
+import defusedxml.ElementTree as et
 
 from sc_python_harvester.xml.utils import find_deep, findall_deep, find_float, find_text
 
@@ -29,7 +31,6 @@ def find_bbox(node, ns, fallback=None):
     :param fallback: the value to return if no bbox can be found
     :return: the bbox if found, otherwise returns fallback
     """
-    bbox = None
     element = find_deep(node, "gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox", ns)
     if element is not None:
         west = find_float(element, "gmd:westBoundLongitude/gco:Decimal", ns, fallback=-180.0)
@@ -38,7 +39,7 @@ def find_bbox(node, ns, fallback=None):
         north = find_float(element, "gmd:northBoundLatitude/gco:Decimal", ns, fallback=90.0)
         return [west, south, east, north]
     else:
-        return fallback;
+        return fallback
 
 
 def sniff_detail_url(node, ns):

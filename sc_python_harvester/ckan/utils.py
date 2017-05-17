@@ -17,6 +17,10 @@ try:
 except ImportError:
     import json
 
+from pyextract.extract import extract
+
+from sc_python_harvester.ckan.enumerations import INFINITY_VALUES
+
 
 def ckan_collect_packages(url, memcached_client=None, cache=0):
     """
@@ -39,7 +43,6 @@ def ckan_collect_packages(url, memcached_client=None, cache=0):
         response_catalog = requests.get(url, params=None)
         if response_catalog.status_code == 200:
             try:
-                #response_catalog_text = response_catalog.text.encode('utf-8')
                 response_catalog_json = response_catalog.json()
             except Exception as err:
                 response_catalog_json = None
@@ -52,7 +55,6 @@ def ckan_collect_packages(url, memcached_client=None, cache=0):
         if response_catalog_json is not None:
             if cache and (memcached_client is not None):
                 memcached_client.set(memcached_key, response_catalog_json)
-
 
     if response_catalog_json is not None:
         packages = extract(["result"], response_catalog_json, None)

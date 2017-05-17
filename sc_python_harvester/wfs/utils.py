@@ -10,12 +10,18 @@ Contains utility functions for WFS
 
 
 import hashlib
+import re
 import requests
 
 try:
     from flask import json
 except ImportError:
-    import json
+    import json  # noqa
+
+import defusedxml.ElementTree as et
+
+from sc_python_harvester.xml.utils import find_deep, findall_deep
+
 
 def wfs_describe_layer(url, typename, ns=None, memcached_client=None, cache=0):
     """
@@ -85,15 +91,14 @@ def wfs_describe_layer(url, typename, ns=None, memcached_client=None, cache=0):
                             attribute_type = element.attrib.get("type", "")
                             if len(attribute_name) > 0 and len(attribute_type) > 0:
                                 if attribute_name in ["geom", "the_geom"]:
-                                     m = re.compile("gml[:](.+)PropertyType", flags=re.IGNORECASE).match(attribute_type)
-                                     if m is not None:
-                                         geometry_type = m.group(1).upper()
+                                    m = re.compile("gml[:](.+)PropertyType", flags=re.IGNORECASE).match(attribute_type)
+                                    if m is not None:
+                                        geometry_type = m.group(1).upper()
                                 else:
                                     m = re.compile("xsd[:](.+)", flags=re.IGNORECASE).match(attribute_type)
                                     if m is not None:
                                         attributes.append({"id": attribute_name, "title": attribute_name, "type": m.group(1).lower()})
                                     else:
                                         attributes.append({"id": attribute_name, "title": attribute_name, "type": attribute_type})
-
 
     return attributes, geometry_type

@@ -21,7 +21,7 @@ setup(
         "sc_python_harvester.geonode",
         "sc_python_harvester.wfs",
         "sc_python_harvester.xml"],
-    classifiers = [
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
