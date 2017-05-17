@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+#########################################################################
+#
+# Copyright (C) 2017 Spatial Current, Inc.
+#
+#########################################################################
+
 def find_deep(node, selector, ns):
     result = node.find(selector, ns) if ns else node.find(selector)
     if result is not None:

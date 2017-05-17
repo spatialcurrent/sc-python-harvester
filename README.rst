@@ -23,7 +23,13 @@ This repo contains Python utility functions for harvesting metadata from open-st
 Installation
 -----------------
 
-Install directly from GitHub with:
+Install via PyPI with:
+
+.. code-block:: bash
+
+    pip install sc-python-harvester
+
+Or install directly from GitHub with:
 
 .. code-block:: bash
 
@@ -32,7 +38,7 @@ Install directly from GitHub with:
 Usage
 -----------------
 
-Simply import the enumerations and functions as needed.
+Simply import the enumerations and functions as needed.  If flask is installed, then the functions will use Flask's JSON module.  Otherwise, they will default to the Python built-in module.
 
 .. code:: python
 

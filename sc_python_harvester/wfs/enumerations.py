@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+#########################################################################
+#
+# Copyright (C) 2017 Spatial Current, Inc.
+#
+#########################################################################
+
 WFS_DEFAULT_NAMESPACES = {
     "csw": "http://www.opengis.net/cat/csw/2.0.2",
     "dc": "http://purl.org/dc/elements/1.1/",

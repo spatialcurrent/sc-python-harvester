@@ -15,3 +15,10 @@ Versioning
 -----------------
 
 This repo is for accessing metadata via public APIs from other projects, so it will be kept in sync with the latest stable releases of those projects.  If there are large backwards incompatible changes in those projects, then a new branch in this repo will be created.  However, semantic versioning will not be implemented until it makes sense given the burden and releases cycles.
+
+Authors
+-----------------
+
+See `AUTHORS`_ for a list of contributors.
+
+.. _AUTHORS: https://github.com/spatialcurrent/sc-python-harvester/blob/master/AUTHORS
