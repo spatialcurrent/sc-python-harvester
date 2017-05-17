@@ -4,6 +4,10 @@
 # Copyright (C) 2017 Spatial Current, Inc.
 #
 #########################################################################
+"""
+Contains utility functions for WFS
+"""
+
 
 import hashlib
 import requests
@@ -14,6 +18,16 @@ except ImportError:
     import json
 
 def wfs_describe_layer(url, typename, ns=None, memcached_client=None, cache=0):
+    """
+    call DescribeFeatureType on a layer and return attributes and geometry type
+
+    :param url: the WFS url, e.g., .../geoserver/wfs
+    :param typename: the layer typename
+    :param ns: a dict of namespaces
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :return: a tulple of (attributes, geometry_type)
+    """
     attributes = None
     geometry_type = None
 

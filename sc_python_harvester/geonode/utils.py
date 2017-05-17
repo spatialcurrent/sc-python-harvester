@@ -4,6 +4,10 @@
 # Copyright (C) 2017 Spatial Current, Inc.
 #
 #########################################################################
+"""
+Contains utility functions for GeoNode
+"""
+
 
 import hashlib
 import requests
@@ -13,7 +17,16 @@ try:
 except ImportError:
     import json
 
+
 def geonode_collect_profiles(url, memcached_client=None, cache=0):
+    """
+    collect list of user profiles from a GeoNode instance
+
+    :param url: the url to the profiles API, e.g., .../api/profiles
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :return: a list of dicts representing user profiles
+    """
     profiles = None
 
     memcached_key = None
@@ -50,6 +63,14 @@ def geonode_collect_profiles(url, memcached_client=None, cache=0):
 
 
 def geonode_collect_resourcebase(url, memcached_client=None, cache=0):
+    """
+    collect resource bases from a GeoNode instance
+
+    :param url: the url to the resource base API, e.g., .../api/base
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :return: a list of dicts representing resource bases
+    """
     resourcebases = None
 
     memcached_key = None

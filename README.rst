@@ -23,13 +23,17 @@ This repo contains Python utility functions for harvesting metadata from open-st
 Installation
 -----------------
 
-Install via PyPI with:
+Install via PyPI_ with:
+
+.. _PyPI: https://pypi.python.org/pypi
 
 .. code-block:: bash
 
     pip install sc-python-harvester
 
-Or install directly from GitHub with:
+Or install directly from GitHub_ with:
+
+.. _GitHub: https://github.com/
 
 .. code-block:: bash
 

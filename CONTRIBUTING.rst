@@ -22,3 +22,29 @@ Authors
 See `AUTHORS`_ for a list of contributors.
 
 .. _AUTHORS: https://github.com/spatialcurrent/sc-python-harvester/blob/master/AUTHORS
+
+Documentation
+-----------------
+
+To build documentation first install sphinx via PyPI_ with:
+
+.. _PyPI: https://pypi.python.org/pypi
+
+.. code-block:: bash
+
+    pip install sphinx sphinx_rtd_theme
+
+Change directory to the **docs** directory then build with:
+
+.. code-block:: bash
+
+    ./make-docs.sh
+
+Tests
+-----------------
+
+Run tests with:
+
+.. code-block:: bash
+
+    python -m unittest pyextract.test

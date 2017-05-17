@@ -4,7 +4,14 @@
 # Copyright (C) 2017 Spatial Current, Inc.
 #
 #########################################################################
+"""
+Contains enumerations for WFS
+"""
 
+
+"""
+The default namespaces you should use when parsing WFS results.
+"""
 WFS_DEFAULT_NAMESPACES = {
     "csw": "http://www.opengis.net/cat/csw/2.0.2",
     "dc": "http://purl.org/dc/elements/1.1/",

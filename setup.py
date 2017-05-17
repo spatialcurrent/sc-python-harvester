@@ -14,7 +14,6 @@ setup(
     description='Python library of utility functions for harvesting metadata from open sources, e.g., GeoNode and CKAN.',
     long_description=open('README.rst').read(),
     download_url="https://github.com/spatialcurrent/sc_python_harvester/zipball/master",
-    #py_modules=["geowatchutil"],
     packages=[
         "sc_python_harvester",
         "sc_python_harvester.ckan",

@@ -4,6 +4,11 @@
 # Copyright (C) 2017 Spatial Current, Inc.
 #
 #########################################################################
+"""
+Contains utility functions for CSW
+"""
+
+
 import hashlib
 import requests
 
@@ -16,6 +21,14 @@ from sc_python_harvester.xml.utils import find_deep, findall_deep, find_float, f
 
 
 def find_bbox(node, ns, fallback=None):
+    """
+    find bbox within node
+
+    :param node: the xml node
+    :param ns: a dict of namespaces
+    :param fallback: the value to return if no bbox can be found
+    :return: the bbox if found, otherwise returns fallback
+    """
     bbox = None
     element = find_deep(node, "gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox", ns)
     if element is not None:
@@ -29,6 +42,14 @@ def find_bbox(node, ns, fallback=None):
 
 
 def sniff_detail_url(node, ns):
+    """
+    find bbox within node
+
+    :param node: the xml node
+    :param ns: a dict of namespaces
+    :param fallback: the value to return if no bbox can be found
+    :return: the bbox if found, otherwise returns fallback
+    """
     detail_url = None
     for element in findall_deep(node, 'gmd:CI_OnlineResource', ns):
         protocol = find_text(element, 'gmd:protocol/gco:CharacterString', ns)
@@ -41,6 +62,18 @@ def sniff_detail_url(node, ns):
 
 
 def csw_collect_records(url, ns=None, maxRecords=1000, maxNumberOfRequests=1000, memcached_client=None, cache=0, verbose=False):
+    """
+    collect CSW records
+
+    :param url: the CSW url, e.g., /catalogue/csw
+    :param ns: a dict of namespaces
+    :param maxRecords: the maximum number of records to return on each request
+    :param maxNumberOfRequests: the maximum number of requests to make to the remote server
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :param verbose: print debug information
+    :return: a list of CSW records
+    """
     records = []
 
     default_params = {

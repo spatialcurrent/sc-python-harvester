@@ -4,6 +4,10 @@
 # Copyright (C) 2017 Spatial Current, Inc.
 #
 #########################################################################
+"""
+Contains utility functions for CKAN
+"""
+
 
 import hashlib
 import requests
@@ -13,7 +17,16 @@ try:
 except ImportError:
     import json
 
+
 def ckan_collect_packages(url, memcached_client=None, cache=0):
+    """
+    collect CKAN packages
+
+    :param url: the CKAN url, e.g., .../api/3/action/package_list
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :return: a list of CKAN packages
+    """
     packages = None
 
     memcached_key = None
@@ -48,6 +61,14 @@ def ckan_collect_packages(url, memcached_client=None, cache=0):
 
 
 def ckan_collect_users(url, memcached_client=None, cache=0):
+    """
+    collect CKAN users
+
+    :param url: the CKAN url, e.g., .../api/3/action/package_list
+    :param memcached_client: pymemcache client for caching http response
+    :param cache: cache results
+    :return: a list of CKAN users
+    """
     users = None
 
     memcached_key = None
@@ -80,6 +101,12 @@ def ckan_collect_users(url, memcached_client=None, cache=0):
 
 
 def find_bbox(r):
+    """
+    find bbox from CKAN resource
+
+    :param r: the CKAN resource, e.g., .../api/3/action/package_list
+    :return: bounding box as a list [west, south, east, north], or None if not found
+    """
     bbox = None
 
     r_shape_info = extract(["shape_info"], r, None)
