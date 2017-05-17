@@ -14,4 +14,4 @@ notifications:
 before_script:
     flake8 sc_python_harvester
 
-script: python -m unittest sc_python_harvester.tests.test
+script: python -m unittest sc_python_harvester.test
