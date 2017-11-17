@@ -47,4 +47,4 @@ Run tests with:
 
 .. code-block:: bash
 
-    python -m unittest pyextract.test
+    python -m unittest sc_python_harvester.test
